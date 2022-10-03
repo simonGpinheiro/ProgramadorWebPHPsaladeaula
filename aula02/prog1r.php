@@ -31,7 +31,7 @@ O programa deverá calcular o valor a ser pago.
     <fieldset>
         <legend>Dados do Produto</legend>
     <?php
-        $valor = $_GET["Valor"];
+        $valor = $_GET["valor"];
         $qtd = $_GET["qtd"];
 
         $total = $valor * $qtd;
@@ -54,7 +54,7 @@ O programa deverá calcular o valor a ser pago.
     </fieldset>
     <br>
     <br>
-	<a href="prog1.php">Voltar</a>
+	<a href="prog1.html">Voltar</a>
     
 </div>
 </body>
