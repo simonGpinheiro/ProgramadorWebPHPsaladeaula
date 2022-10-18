@@ -14,31 +14,27 @@
 <body>
     <div>
         <h1 style="text-align: center;">
-            Arrays 04 com chaves personalizadas.
-     
-        </h1>
+          Procedimentos, Funções e Métodos.</h1>
+        <h4 style="text-align: center;">Testando Funções</h4>
+
         <hr>
         <br>
         <pre>
        <?php 
-      $a = array("Texto" => "A", 3 => "B", 5 => "C", 6 =>"D", 5 => "3");
-      $a[]= 1978; 
+       
+    include "funcoes.php";
 
-      print_r($a);
-      echo "<br>";
-      echo "Imprimindo a posição [Texto] = " . $a["Texto"];
-      echo "<br>";
+     escreva_texto();
+     pularLinha(2);
+     escreva_texto2("Simon");
+     pularLinha(-3);
+     hoje();
+     pularLinha(1);
+     echo "------------------------------------";
+     soma(15, 7);
+      
 
-      $pessoa = array("nome"=> "Márcio Velasco", "idade" => 43, "sexo" => "M");
-    print_r($pessoa);
-    echo "<br>";
-    $pessoa["tem_cnh"] = true;
-    print_r($pessoa);
 
-    foreach($pessoa as $campo => $valor){
-        echo "O valor de $campo é $valor <br>";
-    }
-    
        ?>
         </pre>
 
