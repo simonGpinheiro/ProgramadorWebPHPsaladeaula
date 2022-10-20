@@ -50,6 +50,46 @@ function soma($num1, $num2){
 
 }
 
+function soma2(){
+  $valores= func_get_args();//Pega os argumentos e devolve um array;
+  $qtd1 = count($valores);
+  $qtd2= func_num_args(); //Retorna um inteiro que representa a quantidade de argumentos.
+  $total = 0;
+  echo "<h4 style= 'text-align: center;'> A soma:";
+  for($i =0; $i < $qtd1; $i++){
+    $total += $valores[$i]; // $total = $total + $i
+    echo $valores[$i] . ($i == $qtd1 -1 ? " = " : " + ");
+  }
+  $total = $num1 + $num2;
+  //echo "<h4 style= 'text-align: center;'> A soma é = $total</h4>";
+  echo $total .";";
+  pularLinha(0);
+  //15 + 78 + 55 + 1 = total
+}
+
+function subtracao($num1, $num2){
+  $total = $num1 - $num2;
+  echo "<h4 style= 'text-align: center;'>A subtracao de $num1 - $num2 = total</h4>";
+  pularLinha(0);
+
+}
+
+function multiplicacao($num1, $num2){
+  $total = $num1 * $num2;
+  echo "<h4 style= 'text-align: center;'>A multiplicacao de $num1 * $num2 = total</h4>";
+  pularLinha(0);
+
+}
+
+function divisao ($num1, $num2){
+  if($num2 == 0){
+    echo "não é possível dividir por zero...";
+  } else{
+    $total = $num1 / $num2;
+  }
+  echo "<h4 style= 'text-align: center;'>A divisao de $num1 / $num2 = total</h4>";
+  pularLinha(0);
+}
 
 
 

@@ -21,21 +21,18 @@
         <br>
         <pre>
        <?php 
-       
     include "funcoes.php";
+    include "funcoes2.php";
 
-     escreva_texto();
-     pularLinha(2);
-     escreva_texto2("Simon");
-     pularLinha(-3);
-     hoje();
-     pularLinha(1);
-     echo "------------------------------------";
-     soma(15, 78);
-     soma2(15, 78, 55, 1);
-     subtracao(20, 8);
-     multiplicacao(7, 3);
-     divisao(15,0);
+    escreva_texto2("Meu texto executado por um Procedimento.");
+    $texto = escreva_texto3("Meu texto executado por uma função com retorno.");
+    echo " Texto recebido => $texto";
+    echo "Texto recebido => " . escreva_texto3("TESTE!!!!");
+    echo escreva_texto3("----------------------------------------------------");
+    pularLinha(0);
+    echo "Resultado da multiplicação: " . multiplicacaoR(5, 7);
+    echo "Resultado da divisão: " . divisaoR(5, 5);
+     
       
 
 
