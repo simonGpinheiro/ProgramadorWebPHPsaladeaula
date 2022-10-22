@@ -14,31 +14,55 @@
 <body>
     <div>
         <h1 style="text-align: center;">
-          Procedimentos, Funções e Métodos.</h1>
+            Procedimentos, Funções e Métodos.
+        </h1>
         <h4 style="text-align: center;">Testando Funções</h4>
-
         <hr>
         <br>
         <pre>
-       <?php 
-    include "funcoes.php";
-    include "funcoes2.php";
+        <?php
+        
+        include "funcoes.php";
+        include "funcoes2.php";
 
-    escreva_texto2("Meu texto executado por um Procedimento.");
-    $texto = escreva_texto3("Meu texto executado por uma função com retorno.");
-    echo " Texto recebido => $texto";
-    echo "Texto recebido => " . escreva_texto3("TESTE!!!!");
-    echo escreva_texto3("----------------------------------------------------");
-    pularLinha(0);
-    echo "Resultado da multiplicação: " . multiplicacaoR(5, 7);
-    echo "Resultado da divisão: " . divisaoR(5, 5);
-     
-      
+        escreva_texto2("Meu texto executado por uma Procedimento.");
+        // $texto = escreva_texto3("Meu texto executado por uma função com retorno.");
+        // echo "Texto recebido => $texto"; 
+        pulaLinha(0);
+        echo "Texto recebido => " . escreva_texto3("TESTE!!!!"); 
+        pulaLinha(0);
+        echo "".escreva_texto3("--------------------------------------");
+        pulaLinha(0);
+        echo "Resultado da multiplicação: ". multiplicacaoR(5, 7);
+        pulaLinha(0);
+        echo "Resultado da Divisão: ". divisaoR(5, 5);
+        pulaLinha(0);
+        echo escreva_texto3("--------------------------------------");
+        pulaLinha(0);
+        echo escreva_texto3("------ Passagem por Valor -----------");
+        pulaLinha(0);
+        echo "Valor direto: " . somaR(5, 7); 
+        pulaLinha(0);
+        $num1 = 5;
+        $num2 = 7;
+        echo "Valor por variável: ". somaR($num1, $num2); 
+        pulaLinha(0);
+        echo "Qual é o valor: ". $num2; 
+        pulaLinha(0);
+        echo escreva_texto3("------ Passagem por Referência -----------");
+        pulaLinha(0);
+        echo "Valor direto: " . somaR(5, 7); 
+        pulaLinha(0);
+        $num1 = 5;
+        $num2 = 7;
+        echo "Valor por variável: ". somaR2($num1, $num2); 
+        pulaLinha(0);
+        echo "Qual é o valor: ". $num2; 
+        pulaLinha(0);
 
 
-       ?>
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -47,7 +71,3 @@
 </body>
 
 </html>
-
-
-
-
