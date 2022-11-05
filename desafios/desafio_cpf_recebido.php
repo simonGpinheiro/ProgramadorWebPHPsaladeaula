@@ -47,11 +47,16 @@
         echo "<br><h2 style='text-align: center;'>$cpf <br>Invalido.</h2>";
     }
 
+
+
+
+
+
     ?>
     <a href="desafio_cpf.php" class="btn btn-link">
             <i class="bi bi-reply" style="font-size: 2rem;"></i>
+
         </a>
-        
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -60,4 +65,3 @@
 </body>
 
 </html>
- 

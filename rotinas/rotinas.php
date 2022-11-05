@@ -13,35 +13,35 @@
 
 <body>
     <div>
-        <h1 style="text-align: center;">
-          Procedimentos, Funções e Métodos.</h1>
-        <h4 style="text-align: center;">Testando Funções</h4>
 
+
+
+        <h1 style="text-align: center;">
+            Procedimentos, Funções e Métodos.
+        </h1>
+        <h4 style="text-align: center;">Testando Funções</h4>
         <hr>
         <br>
         <pre>
-       <?php 
-       
-    include "funcoes.php";
+        <?php
+        
+        include "funcoes.php";
 
-     escreva_texto();
-     pularLinha(2);
-     escreva_texto2("Simon");
-     pularLinha(-3);
-     hoje();
-     pularLinha(1);
-     echo "------------------------------------";
-     soma(15, 78);
-     soma2(15, 78, 55, 1);
-     subtracao(20, 8);
-     multiplicacao(7, 3);
-     divisao(15,0);
-      
+       escreva_texto();
+       pulaLinha(2);
+       escreva_texto2("Velasco");
+       pulaLinha(-3);
+       hoje();
+       pulaLinha(1);
+       echo "<h4 style='text-align: center;'>-----------------------------</h4>";
+       soma(15, 78);
+       soma2(15, 78, 55, 1, 2);
+       subtracao(20, 8);
+       multiplicacao(7, 3);
+       divisao(15, 0);
 
-
-       ?>
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -50,7 +50,3 @@
 </body>
 
 </html>
-
-
-
-

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div>
-<p>1) Desvio condicional composto (DCC)
+<p>Desvio condicional composto (DCC)
 
 É quando uma pergunta tem duas ou mais possíveis respostas.
 
@@ -31,15 +31,14 @@ O programa deverá verificar se o número
         <legend>Dados do Produto</legend>
     <?php
         $numero = $_GET["n"];
-        $resto = $numero % 2; //% = "módulo" é o resto da divisão//
-        
-       //Desvio condicional composto//
-        
-       if($resto ==0) {
-           echo "<h1>Par!</h1>";
-       } else{
-           echo "<h1>Ímpar!</h1>";
-       }
+        $resto = $numero % 2; //% = modulo é o resto da divisão
+
+        //Desvio condicional composto
+        if($resto == 0){
+           echo "<h1  style='text-align: center'>Par!</h1>";
+        } else {
+            echo "<h1 style='text-align: center'>Impar!</h1>";
+        }
 
     ?>
     <br>

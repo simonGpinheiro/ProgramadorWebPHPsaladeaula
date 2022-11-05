@@ -1,8 +1,7 @@
 <?php
-
-function pularLinha($numero){
-do{
+function pulaLinha($numero){
+        do{
         echo "<br>";
         $numero--;
-}while($numero >= 1);
+    }while($numero >= 1);
 }

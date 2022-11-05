@@ -13,104 +13,101 @@
 
 <body>
     <div>
+
+
+
         <h1 style="text-align: center;">
-            Arrays 05 - Funções
-     
+            Arrays 05 - Funções.
         </h1>
         <hr>
         <br>
         <pre>
-       <?php 
-      $a = array ("A", "B", "C", "D", "E");
-      print_r($a);
-      $tamanho = count($a);
-      echo "Tamanho do array - count(array): " . $tamanho;
-      echo "<br>";
-      
-      echo "Coloca um novo elemento no fim do array: array[] = 'dado';";
-      $a[] = "F";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
+        <?php
+       $a = array("A", "B", "C", "D", "E");
+        print_r($a);
+        $tamanho = count($a);
+        echo "Tamanho do Array - count(array): " . $tamanho;
+        echo "<br>";
+        
+        echo "Coloca um novo elemento no final do array: array[] = 'dado';";
+        $a[] = "F";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Coloca um novo elemento no final do array_push(array, 'dado');";
+        array_push($a, 'G');
+        echo "<br>";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Elimina o ultimo elemento do array: array_pop(array)";
+        array_pop($a);
+        echo "<br>";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Remove uma posição do vetor unset(array[posição]);";
+        unset($a[0]);
+        echo "<br>";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Coloca um novo elemento no início do array. array_unshift(array, 'dado')";
+        array_unshift($a, "A");
+        echo "<br>";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Elemina o primeiro elemento do array. array_shift(array)";
+        array_shift($a);
+        echo "<br>";
+        print_r($a);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "Ordenação: sort(array) = Ordena os elementos do array.";
+        $b = array("E", "C", "D", "B", "A");
+        echo "<br>";
+        print_r($b);
+        echo "<br>";
+        echo "sort() - Ordena em ordem crescente.";
+        sort($b);
+        print_r($b);
+        echo "<br>";
+        echo "rsort() - Ordena em ordem decrescente.";
+        rsort($b);
+        print_r($b);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "ksort(array) = Ordena os elementos do array, pelo índices 'key'";
+        $c = array(4=>"A", 3=>"B", 2=>"C", 1=>"D", 0=>"E");
+        echo "<br>";
+        print_r($c);
+        echo "<br>";
+        ksort($c);
+        print_r($c);
+        echo "<br>";
+        echo "--------------------------------------";
+        echo "<br>";
+        
+        echo "var_dump (variável): Mostra informações sobre a variável;";
+        var_dump($c);
 
-      echo "Coloca um novo elemento no fim do array_push(array,'dado');";
-      array_push($a, 'G');
-      echo "<br>";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "Elimina o último elemento do array: array_pop(array)";
-      array_pop($a);
-      echo "<br>";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "Remove uma posição do vetor unset(array[posição]);";
-      unset($a[0]);
-      echo "<br>";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "Coloca um novo elemento no inicio do array. array_unshift(array, 'dado')";
-      array_unshift($a, "A");
-      echo "<br>";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "Elimina o primeiro elemento do array. array_shift(array)";
-      array_shift($a);
-      echo "<br>";
-      print_r($a);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "Ordenação: sort(array) = Ordena os elementos do array.";
-      $b = array("E", "C", "D", "B", "A");
-      echo "<br>";
-      print_r($b);
-      echo "<br>";
-      echo "sort() - Ordena em ordem crescente.";
-      sort($b);
-      print_r($b);
-      echo "<br>";
-
-      echo "sort() - Ordena em ordem decrescente.";
-      rsort($b);
-      print_r($b);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-
-      echo "ksort(array) = Ordena os elementos do array, pelo índice 'key'";
-      $c = array(4=>"A", 3=>"B", 2=>"C", 1=>"D", 0=>"E");
-      echo "<br>";
-      print_r($c);
-      echo "<br>";
-      ksort($c);
-      print_r($c);
-      echo "<br>";
-      echo "----------------------------------";
-      echo "<br>";
-      
-      echo "var_dump (variável): Mostra informações sobre a variável;";
-      var_dump($c);
-      
-      
-
-
-       ?>
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -119,7 +116,3 @@
 </body>
 
 </html>
-
-
-
-

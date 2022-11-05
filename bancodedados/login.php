@@ -1,6 +1,10 @@
 <?php
+// if(!isset($_SESSION)){
+//     session_start();
+// }
 
 require_once 'protect.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -11,9 +15,8 @@ require_once 'protect.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilo.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="css/estilo.css" />
     <title>Senac - Curso de PHP</title>
 </head>
 
@@ -26,10 +29,14 @@ require_once 'protect.php';
     echo "<br><h2 style='text-align: center;'>Bem vindo ao Sistema!<br>$nomeUsuario</h2>";
 
     ?>
+    <a href="index.php" class="btn btn-link">
+        <i class="bi bi-reply" style="font-size: 2rem;"></i>
+    </a>
     <a href="logout.php" class="btn btn-link">
-            <i class="bi bi-door-closed" style="font-size: 2rem;">Voltar</i>
+        <i class="bi bi-door-closed" style="font-size: 2rem;"></i>
+    </a>
 
-        </a>
+
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"

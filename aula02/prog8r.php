@@ -9,13 +9,25 @@
 </head>
 <body>
 <div>
-<p>1)Escreva um programa que leia um número.
-
-O programa deverá verificar se o número
-é positivo ou negativo.
-
-Se o número for positivo o programa deverá verificar
-se o número é maior que 10, caso seja imprimir valido.
+<p>Escreva um programa que leia um numero.
+<br/>
+O programa deverá verificar se o numero
+é valido.
+<br/>
+Numero válido está entre 0 e 10.
+<br/>
+O programa deverá imprimir 
+valido ou invalido.
+<br/>
+Operadores condicionais<br/>
+< menor<br/>
+> maior<br/>
+<= menor igual<br/>
+>= maior igual<br/>
+<> diferente de <br/>
+!= não igual há<br/>
+== igual<br/>
+=== idêntico
     </p>
     <hr/>
     <h2 style="text-align: center">Informações dos Produtos</h2>
@@ -24,21 +36,19 @@ se o número é maior que 10, caso seja imprimir valido.
     <?php
         $numero = $_GET["n"];
         
-       //Desvio condicional composto//
+        //Desvio condicional composto
+        if($numero < 0 || $numero > 10){
+            echo "<h1 style='text-align: center'>Invalido!</h1>";
+        }else {
+            echo "<h1 style='text-align: center'>Valido!</h1>";
+        }
         
-       if($numero  > 0) {
-           echo "<h1 style='text-align: center'>Positivo!</h1>";
-           if($numero > 10){
-            echo "<h1 style='text-align: center'>Válido!</h1>";
-           }
-       } else{
-           echo "<h1 style='text-align: center'>Negativo!</h1>";
-       }
-
-        //condição ? verdadeiro : falso;
-        //($numero >0) ? "<h1 style='text-align: center'>Positivo!</h1>" : "<h1 style='text-align: center'>Negativo!</h1>";  
-
-
+        if($numero >= 0 && $numero <= 10){
+            echo "<h1 style='text-align: center'>Valido!</h1>";
+        }else {
+            echo "<h1 style='text-align: center'>Invalido!</h1>";
+        }
+       
     ?>
     <br>
     </fieldset>

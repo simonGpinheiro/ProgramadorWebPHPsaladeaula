@@ -13,35 +13,48 @@
 
 <body>
     <div>
+
+
+
         <h1 style="text-align: center;">
-            Arrays 04 com chaves personalizadas.
-     
+            Arrays 04 com Chaves personalizadas.
         </h1>
         <hr>
         <br>
         <pre>
-       <?php 
-      $a = array("Texto" => "A", 3 => "B", 5 => "C", 6 =>"D", 5 => "3");
-      $a[]= 1978; 
+        <?php
+       $a = array("Texto" => "A", 3 => "B", 5 => "C", 6 => "D", 5 => "3");
+        $a[]= 1978;
+       print_r($a);
+       echo "<br>";
+       echo "Imprimindo a posição [Texto] = " . $a["Texto"];
+       echo "<br>";
+       
+       $pessoa = array("nome"=> "Márcio Velasco", "idade" => 43, "sexo" => "M" );
+       print_r($pessoa);
+       echo "<br>";
+       $pessoa["tem_cnh"] = false;
+       print_r($pessoa);
 
-      print_r($a);
-      echo "<br>";
-      echo "Imprimindo a posição [Texto] = " . $a["Texto"];
-      echo "<br>";
+        foreach($pessoa as $campo => $valor){
+            // echo "O valor de $campo é $valor <br>";
+            // if($campo == "tem_cnh"){
+            //     // $valor == 1 ? $valor = "Sim" : $valor = "Não";
+            //     $valor ? $valor = "Sim" : $valor = "Não";
+            // echo "O valor de $campo é $valor <br>";
+            // }
+            
+            // echo  "O valor de " . ($campo == "tem_cnh" ? ($valor ? "$campo é Sim" : "$campo é Não") : "$campo é $valor <br>");
+            
+            echo  "O valor de $campo é " . ($campo == "tem_cnh" ? ($valor ? "Sim" : "Não") : "$valor <br>");
 
-      $pessoa = array("nome"=> "Márcio Velasco", "idade" => 43, "sexo" => "M");
-    print_r($pessoa);
-    echo "<br>";
-    $pessoa["tem_cnh"] = true;
-    print_r($pessoa);
+            //     Condição ? Verdadeiro : Falso;
+            //     if(      ) {       } else {     }
+        }
 
-    foreach($pessoa as $campo => $valor){
-        echo "O valor de $campo é $valor <br>";
-    }
-    
-       ?>
+
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -50,7 +63,3 @@
 </body>
 
 </html>
-
-
-
-

@@ -9,25 +9,69 @@
 </head>
 <body>
 <div>
-<p>
-    Escreva um programa que leia o nome, a idade e o sexo de uma pessoa. O programa deverá imprimir as informações lidas.
-</p>
-<h3>Cadastro de usuário</h3>
+<p>Escreva um programa que leia um número.
 
-<?php
-$login = $_POST["login"];
-$senha = $_POST["senha"] ;
-$perfil = $_POST["perfil"];
+O programa deverá verificar se o número
+é positivo ou negativo.
 
-echo "<h3>Informações do usuário</h3>";
+Se o número for positivo o programa deverá verificar
+se o número é maior que 10, caso seja imprimir valido.
+    </p>
+    <hr/>
+    <h2 style="text-align: center">Informações dos Produtos</h2>
+    <fieldset>
+        <legend>Dados do Produto</legend>
+    <?php
+        $numero = $_GET["n"];
+        
+        //Desvio condicional composto
+        
+        if($numero > 0){
+           echo "<h1  style='text-align: center'>Positivo!</h1>";
+           if($numero > 10){
+               echo "<h1  style='text-align: center'>Valido!</h1>";
+           }
+        } else {
+            echo "<h1 style='text-align: center'>Negativo!</h1>";
+        }
+        
+        /*
+        if($numero > 0){
+           echo "<h1  style='text-align: center'>Positivo!</h1>";
+        } 
+        else {
+        }
+        if($numero < 0){
+            echo "<h1 style='text-align: center'>Negativo!</h1>";
+        } else {
+            echo "<h1 style='text-align: center'>Neutro!</h1>";
+        }
+        if($numero >10){
+            echo "<h1  style='text-align: center'>Valido!</h1>";
+        }  
+        */
+        /*
+        if($numero > 0){
+            if($numero >10){
+                echo "<h1  style='text-align: center'>Valido!</h1>";
+            } else{
+            }  
+            echo "<h1  style='text-align: center'>Positivo!</h1>";
+        }else {
+            echo "<h1 style='text-align: center'>Negativo!</h1>";
+     }
+     */
 
-echo "Login: $login, Senha: $senha, Perfil: $perfil";
+        // condição ? verdadeiro : falso;
+    //    echo (($numero >0) ? "<h1  style='text-align: center'>Positivo!</h1>" : "<h1 style='text-align: center'>Negativo!</h1>");
 
-?>
-
-<br>
-<a href="prog6r.php"><h3>Voltar<h3></a>
-
+    ?>
+    <br>
+    </fieldset>
+    <br>
+    <br>
+	<a href="prog6.html">Voltar</a>
+    
 </div>
 </body>
 </html>

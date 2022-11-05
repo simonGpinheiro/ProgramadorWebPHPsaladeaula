@@ -13,52 +13,40 @@
 
 <body>
     <div>
+
+
+
         <h1 style="text-align: center;">
             Arrays 03 com FOREACH.
-     
         </h1>
         <hr>
         <br>
         <pre>
-       <?php 
-       //(início, fim, tamanho do passo)
-       //No exemplo esta de 1 em 1;
-       //Tamanho de um array é n - 1;
+        <?php
+        //(início, fim, tamanho do passo)
+        //No exemplo esta de 1 em 1
+        // Tamanho de um array é n - 1;
            $a = range(1, 10, 1);
            print_r($a);
            $tamanho = count($a);
            echo "<br>";
            echo "Tamanho do Array: $tamanho";
            echo "<br>";
-           echo "Tamanho do Array:" . $tamanho;
-           echo "<br>";
-           echo "Tamanho do Array:" . count($a);
-           echo "<br>";
-           // echo "Tamanho do Array: count($a)"; //Erro a função count retorna valor. Precisa ser concatenado ou guardado em uma variável.
-           
-           echo "Elemento da posição 5" .$a[5];
-           echo "<br>";
-           echo "<br>";
            $a[] = 100;
-           echo "Tamanho do Array:" . count($a);
+           echo "Tamanho do Array: " . count($a);
            echo "<br>";
-           //for($i=0 ; $i < count($a) ; $i++){
-               //echo "[$i] => $a[$i] .<br>";
-           //}
+           //    for($i=0 ; $i < count($a) ; $i++){
+               //         echo "[$i] => $a[$i] <br>";    
+               //     }
+               //Conhecendoo o FOREACH
+            // foreach($a as $i){
+            foreach($a as $i => $x){
+                // echo "[$valor] => $valor <br>";
+                echo "[$i] => $x <br>";
+            }   
 
-
-           //Conhecendo o FOREACH
-           foreach($a as $valor){
-               echo $valor . "<br>";
-           }
-
-
-
-
-
-       ?>
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -67,7 +55,3 @@
 </body>
 
 </html>
-
-
-
-

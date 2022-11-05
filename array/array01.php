@@ -13,17 +13,19 @@
 
 <body>
     <div>
+
+
+
         <h1 style="text-align: center;">
-            Arrays 01.
-     
+            Arrays.
         </h1>
         <hr>
         <br>
         <pre>
-       <?php 
-            // Tamanho de vetor n - 1;
+        <?php
+            // Tamanho de vetor n - 1; 
             $c = array(15, 12, 1978, 70, 22);
-            //echo $c[2];
+            // echo $c[2];
             print_r($c);
 
             echo "<br>";
@@ -35,13 +37,11 @@
             $a[4] = 14;
             $a[5] = 16;
             print_r($a);
-
-            $a[] = 75; //Coloca um novo elemento no fim do array;
+            
+            $a[] = 75;// Coloca um novo elemento no final do array;
             print_r($a);
-
-       ?>
+        ?>
         </pre>
-
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -50,7 +50,3 @@
 </body>
 
 </html>
-
-
-
-

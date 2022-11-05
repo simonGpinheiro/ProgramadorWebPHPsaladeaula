@@ -9,20 +9,20 @@
 </head>
 <body>
 <div>
-<p>1) Estrutura condicional
+<p>Estrutura condicional
 
 Representa um fluxo alternativo 
 na execução do programa.
 
 Desvio condicional simples (DCS)
 É quando uma pergunta tem
-somente uma única resposta.
+somente uma unica resposta.
 
 Escreva um programa que leia o preço de um
 produto.
 
 O programa deverá calcular um desconto de 
-10% somente se o preço do produto for maior
+10% somente se o preco do produto for maior
 de 100.
     </p>
     <hr/>
@@ -33,17 +33,15 @@ de 100.
         $valor = $_GET["valor"];
         $qtd = $_GET["qtd"];
 
-       $desconto = 0;
+        $desconto = 0;
 
-       //Desvio condicional//
-        
-       if($valor > 100) {
-           $desconto = ($valor * 10) / 100; // $valor * .10;//
-       }
+        //Desvio condicional
+        if($valor > 100){
+           $desconto = ($valor * 10) / 100; // $valor * .10; 
+        }
 
         echo "Desconto: R$ " . number_format($desconto, 2, ",", ".");
-        echo "<br>Valor com desconto: R$ " . number_format($valor - $desconto, 2, ",", ".");
-
+        echo "<br>Valor com Desconto: R$ ". number_format($valor - $desconto, 2, ",", ".");
 
     ?>
     <br>
