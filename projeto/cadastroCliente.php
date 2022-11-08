@@ -2,11 +2,15 @@
 <html lang="pt-br">
 
 <head>
+	<?php
+	 require "html/head.php";
+	 if(!isset($_SESSION)){
+		session_start();
+	 }
+	 ?>
 
-<?php require "html/head.php" ?>
-<script>
-
-		function confirma() {
+    <script>
+        		function confirma() {
 			if (f.senha.value == "") {
 
 				document.getElementById("divConfirma").style.display = 'none';
@@ -26,36 +30,36 @@
 				document.getElementById("erro").style.display = 'block';
 				document.getElementById("btn-off").style.display = 'block';
 				document.getElementById("btn-on").style.display = 'none';
-				<?php $res = true ?>
-
+                <?php $res = true ?>
 			}
-
 		}
-</script>
-
+        
+        </script>
+        
 </head>
+
 	<!--  -->
 	<body>
 		<?php 
-		include "html/header.php"; 
-		require_once "src/conexao.php";
-		require_once "src/model/Cliente.php";
+        include "html/header.php"; 
+        require_once "src/conexao.php";
+        require_once "src/model/Cliente.php";
 
-		$idCliente = isset($_POST["id"]) ? $_POST["id"] :0;
-		$nome = isset($_POST["nome"]) ? $_POST["nome"] :"";
-		$nascimento = isset($_POST["nascimento"]) ? $_POST["nascimento"] : "";
-		$orgao = isset($_POST["orgao"]) ? $_POST["orgao"] :"";
-		$rg = isset($_POST["rg"]) ? $_POST["rg"] :"";
-		$cpf = isset($_POST["cpf"]) ? $_POST["cpf"] :"";
-		$estadoCivil = isset($_POST["estado_civil"]) ? $_POST["estado_civil"] :"";
-		$sexo = isset($_POST["sexo"]) ? $_POST["sexo"] :"";
-		$email = isset($_POST["email"]) ? $_POST["email"] :"";
-		$senha = isset($_POST["senha"]) ? $_POST["senha"] :"";
-		$ativo = isset($_POST["ativo"]) ? $_POST["ativo"] : true;
+        $idCliente = isset($_POST["id"]) ? $_POST["id"] : 0;
+        $nome = isset($_POST["nome"]) ? $_POST["nome"] : "";
+        $dataNascimento = isset($_POST["nascimento"]) ? $_POST["nascimento"] : "";
+        $orgao = isset($_POST["orgao"]) ? $_POST["orgao"] : "";
+        $rg = isset($_POST["rg"]) ? $_POST["rg"] : "";
+        $cpf = isset($_POST["cpf"]) ? $_POST["cpf"] : "";
+        $estadoCivil = isset($_POST["estado_civil"]) ? $_POST["estado_civil"] : "";
+        $sexo = isset($_POST["sexo"]) ? $_POST["sexo"] : "";
+        $email = isset($_POST["email"]) ? $_POST["email"] : "";
+        $senha = isset($_POST["senha"]) ? password_hash($_POST["senha"], PASSWORD_DEFAULT) : "";
+        $ativo = isset($_POST["ativo"]) ? $_POST["ativo"] : true;
 
-		if($_POST["nome"] && $_POST["senha"]){
+        if(isset($_POST["nome"]) && isset($_POST["senha2"])){
 
-			$cliente = new Cliente(
+            $cliente = new Cliente(
                 $idCliente,
                 $nome,
                 $dataNascimento,
@@ -67,14 +71,49 @@
                 $email,
                 $senha,
                 $ativo
-			);
+            );
 
-			$sql_code = "INSERT INTO cliente  VALUES (NULL, '$nome', '$dataNascimento', '$orgao', '$rg', '$cpf', '$estadoCivil', '$sexo', '$email', '$senha', true)";
-			$sql_query = $conexao->query($sql_code);
-		}
-		?>
+            $sql_code = "INSERT INTO cliente  VALUES (NULL, '$nome', '$dataNascimento', '$orgao', '$rg', '$cpf', '$estadoCivil', '$sexo', '$email', '$senha', true)";
+            $sql_query = $conexao->query($sql_code);
+
+			if($sql_query){
+				$sql_code = "SELECT idcliente, nome FROM cliente WHERE cpf = '$cpf'";
+				$sql_query = $conexao->query($sql_code);
+
+				$cliente = $sql_query->fetch_assoc();
+
+				$_SESSION["id"] = $cliente['idcliente'];
+				$_SESSION["nome"] = $cliente['nome'];
+
+				echo '<!DOCTYPE html>';
+				echo '<html lang="pt-br">';
+				echo '<head>';
+			echo '</head>';
+			echo '<body>';
+			echo '<div style="width: 1024px; margin: auto;" class="alert alert-success" role="alert">
+				Cadastro realizado com sucesso! <a style="text-decoration: none; float: right;" href="cadastroCliente.php" class="alert-link">x</a>
+				<br><a style="text-decoration: none; float: left;" href="cadastroClienteComplemento.php" class="alert-link">Cadastro Coplementar</a><br>
+			</div>';
+			echo '</body>';
+			echo '</html>';
+			} else {
+				echo '<!DOCTYPE html>';
+				echo '<html lang="pt-br">';
+				echo '<head>';
+				echo '   <meta http-equiv="refresh" content="10; url=cadastroCliente.php">';
+				echo '</head>';
+				echo '<body>';
+				echo '<div style="width: 1024px; margin: auto;" class="alert alert-danger" role="alert">
+					Erro ao adicionado! <a style="text-decoration: none; float: right;" href="cadastroCliente.php" class="alert-link">x</a>
+				</div>';
+				echo '</body>';
+				echo '</html>';
+			}
+        }
+
+        ?>
+
 		<main>
-			
         <div class="container-fluid">
 			<h3>Cadastro de Clientes</h3>
 			<form class="row g-3 container-fluid" name="f" action="" method="post">
@@ -154,15 +193,16 @@
 				</div>
 			</form>
 		</div>
-
 		</main>
-		<?php
-		include "html/rodaPe.php";
-		?>
+<?php
+	include "html/rodaPe.php";
+?>
+
+
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
-		
+
 </body>
 
 </html>
