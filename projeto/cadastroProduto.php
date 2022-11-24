@@ -5,7 +5,6 @@
 	<?php 
 	require "html/head.php";
 	
-	
 	?>
 
 	<script>
