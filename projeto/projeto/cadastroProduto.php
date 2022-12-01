@@ -5,7 +5,6 @@
 	<?php 
 	require "html/head.php";
 	
-	
 	?>
 
 	<script>
@@ -62,7 +61,7 @@ if (f.tipo.value == "HARDWARE") {
 			
 	
 			if($deu_certo){
-				$sql_code = "INSERT INTO produtos VALUES (NULL, '$nome', '$tipo', '$categoria', '$fabricante', '$descricao', '$camiho', true)";
+				$sql_code = "INSERT INTO produtos VALUES (NULL, '$nome', '$tipo', '$categoria', '$fabricante', '$descricao', '$caminho', true)";
 				$sql_query = $conexao->query($sql_code) or die("Falha na execução do código SQL: ". $conexao->error . "<br>" . var_dump($conexao->error));
 				if($sql_query){
 					echo "Gravou!";

@@ -1,5 +1,6 @@
 <?php
  require_once "src/protect.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -29,7 +30,7 @@
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <!-- --------------------------------------------------- -->
+     <!-------------------------------------------------------------->
         <div class="container-fluid">
         <form class="row g-3 container-fluid" name="f" action="" method="post">
             <input type="text" class="form-control" id="id_cliente" name="idcliente" value="" hidden>
