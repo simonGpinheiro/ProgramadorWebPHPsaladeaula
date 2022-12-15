@@ -42,7 +42,8 @@ header img {
     height: 90px;
 }
 
-header input[type=text] {
+/*header input[type=text] {*/
+#buscar{
     /* ALTERADO */
     width: 500px;
     height: 40px;
@@ -199,9 +200,9 @@ aside {
     width: 18%;
     margin: auto;
     position: relative;
-    /*top: -34px;*/
-    /*bottom: 190px;*/
-    bottom: 34px;
+    /* top: -34px; */
+    /* bottom: 190px; */
+    bottom: 36px;
     right: 20px;
     clear: right;
     /* background-color: var(--cor-secundaria); */

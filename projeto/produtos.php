@@ -11,8 +11,17 @@
 		<?php 
 		include "html/header.php";
 		require_once "src/conexao.php";
+		$buscado = isset($_GET['buscado']) ? $_GET['buscado'] : '';
 
-		$sql_code = "SELECT * FROM produtos";
+		$sql_code;
+
+		if($buscado){
+			$sql_code = "SELECT * FROM produtos WHERE descricao LIKE '%$buscado%' ORDER BY nome";
+	
+		} else{
+			$sql_code = "SELECT * FROM produtos";
+		}
+
 		$sql_query = $conexao->query($sql_code);
 
 		if(!isset($_SESSION)){
@@ -22,17 +31,18 @@
 		?>
 		<main>
 		<?php
-		
 		if(isset($_SESSION['tipo'])){
-
-		echo '<a href="cadastroProduto.php" class="col-6 btn btn-link" style="float: right" >
-		<i class="bi bi-plus-circle" style="font-size: 2rem;"></i>
-		<h6>Cadastrar</h6>
+		echo '<a href="cadastroProduto.php" class="col-6 btn btn-link" style="float: right;" >
+			<i class="bi bi-plus-circle" style="font-size: 2rem;"></i>
+			<h6>Cadastrar</h6>
 		</a>';
+
 		}
 		?>
 			<h1>Produtos</h1>
 			<h3>Lista cadastrados</h3>
+			<?php if($sql_query->num_rows >0) : ?>
+			<div class="table-responsive">
 			<table class="table table-bordered">
 				<tr>
 					<th>ID</th>
@@ -57,7 +67,7 @@
 					<td><?= $produto['ativo']?></td>
 					<td>
 						<?php
-						if(isset($_SESSION['tipo']) && $_SESSION['tipo']=="Administrador"){
+						if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 							$idProduto = $produto['idproduto'];
 							echo "<a href='estoque.php?id=$idProduto;'>[ESTOQUE]</a>";
 						}?>
@@ -68,6 +78,8 @@
 				}
 				?>
 			</table>
+			</div>
+			<?php else : echo "<h3 style='text-align: center; margin-top: 50px;'>O produto: $buscado não foi encontrado.</h3>"; endif;?>
 		</main>
 <?php
 	include "html/rodaPe.php";
@@ -75,7 +87,7 @@
 
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 
 </body>

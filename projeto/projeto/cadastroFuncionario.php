@@ -108,11 +108,26 @@
 					<label for="or_id" class="form-label">Celular</label>
 					<input type="text" class="form-control" id="or_id" name="celular" value="" required>
 				</div>
-				<div class="col-md-6 col-sm-12">
+
+                <div class="col-md-3 col-sm-12">
+					<label for="tipo_id" class="form-label">Tipo</label>
+					<select class="form-select" id="estadoc" name="tipo_c" required>
+						<option selected disabled value="">Selecione</option>
+						<option value="Administrador">Administrador(a)</option>
+						<option value="Vendedor">Vendedor(a)</option>
+					</select>
+				</div>
+
+				<div class="col-md-4 col-sm-12">
+					<label for="rg_id" class="form-label">Identidade</label>
+					<input type="text" class="form-control" id="rg_id" name="rg" value="" required>
+				</div>
+				
+                <div class="col-md-3 col-sm-12">
 					<label for="estadoc" class="form-label">Estado civil</label>
 					<select class="form-select" id="estadoc" name="estado_civil" required>
 						<option selected disabled value="">Selecione</option>
-						<option value="Solteiro">Solterio(a)</option>
+						<option value="Solterio">Solterio(a)</option>
 						<option value="Casado">Casado(a)</option>
 						<option value="Divorciado">Divorciado(a)</option>
 						<option value="Viuvo">Viuvo(a)</option>

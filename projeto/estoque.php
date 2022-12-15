@@ -14,10 +14,11 @@
 
 		$id= isset($_GET["id"]) ? $_GET["id"] : 0;
 
-		 $sql_code = "SELECT * FROM produtos LEFT JOIN  estoque ON idproduto = id_produto WHERE idproduto = '$id'";
-		 $sql_query = $conexao->query($sql_code);
+		$sql_code = "SELECT * FROM produtos LEFT JOIN  estoque ON idproduto = id_produto WHERE idproduto = '$id'";
+		$sql_query = $conexao->query($sql_code);
 
-		 ?>
+		
+		?>
 		<main>
 			<h1>Estoque</h1>
 			<h3>Lista cadastrados</h3>
@@ -26,17 +27,18 @@
 				<tr>
 					<th>ID</th>
 					<th>FOTO</th>
+					<th>NOME</th>
 					<th>TIPO</th>
 					<th>CATEGORIA</th>
+					<th>FABRICANTE</th>
 					<th>QTD</th>
 					<th>REGISTRO</th>
 					<th>DATA</th>
 					<th>VALOR COMPRA</th>
 					<th>VALOR VENDA</th>
 				</tr>
-				<?php
+				<?php 
 				while($produto = $sql_query->fetch_assoc()){
-
 				?>
 				<tr>
 					<td><?= $produto['idproduto']?></td>
@@ -45,13 +47,11 @@
 					<td><?= $produto['tipo']?></td>
 					<td><?= $produto['categoria']?></td>
 					<td><?= $produto['fabricante']?></td>
-					<td><?= $produto['ativo']?></td>
-					<td><?= $produto['qts']?></td>
+					<td><?= $produto['qtd']?></td>
 					<td><?= $produto['registro']?></td>
 					<td><?= $produto['data_registro']?></td>
 					<td><?= $produto['valor_compra']?></td>
 					<td><?= $produto['valor_venda']?></td>
-					
 				</tr>
 				<?php
 				}
@@ -82,11 +82,11 @@
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <label for="valorid" class="form-label">Valor Compara Unitário</label>
-                    <input type="number" class="form-control" id="valorid" name="valor_compra" value="" required tern="[0-9] ([,\.][0-9] )?" min="0" step="any">
+                    <input type="number" class="form-control" id="valorid" name="valor_compra" value="" required tern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <label for="valorid" class="form-label">Valor Venda Unitário</label>
-                    <input type="number" class="form-control" id="valorid" name="valor_venda" value="" required tern="[0-9] ([,\.][0-9] )?" min="0" step="any">
+                    <input type="number" class="form-control" id="valorid" name="valor_venda" value="" required tern="[0-9]+([,\.][0-9]+)?" min="0" step="any">
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit" id="btn-off" disabled style="display: none">Cadastrar</button>

@@ -4,29 +4,30 @@
 <head>
 	<?php 
 	require "html/head.php";
-	
 	?>
-
 	<script>
+		
 	function selecao() {
 
-if (f.tipo.value == "HARDWARE") {
-	document.getElementById("perid").value = "";
-	document.getElementById("divHar").style.display = 'block';
-	document.getElementById("harid").disabled = false;
-	document.getElementById("perid").disabled = true;
-	document.getElementById("divPer").style.display = 'none';
-} else {
-	document.getElementById("harid").value = "";
-	document.getElementById("divHar").style.display = 'none';
-	document.getElementById("harid").disabled = true;
-	document.getElementById("perid").disabled = false;
-	document.getElementById("divPer").style.display = 'block';
-}
-}
-</script>
-
+		if (f.tipo.value == "HARDWARE") {
+			document.getElementById("perid").value = "";
+			document.getElementById("divHar").style.display = 'block';
+			document.getElementById("harid").disabled = false;
+			document.getElementById("perid").disabled = true;
+			document.getElementById("divPer").style.display = 'none';
+		} else {
+			document.getElementById("harid").value = "";
+			document.getElementById("divHar").style.display = 'none';
+			document.getElementById("harid").disabled = true;
+			document.getElementById("perid").disabled = false;
+			document.getElementById("divPer").style.display = 'block';
+		}
+	}
+	</script>
+	
 </head>
+
+	<!--  -->
 	<body>
 		<?php 
 		include "html/header.php";
@@ -37,12 +38,11 @@ if (f.tipo.value == "HARDWARE") {
 		$categoria = isset($_POST["categoria"]) ? $_POST["categoria"] : "";
 		$fabricante = isset($_POST["fabricante"]) ? $_POST["fabricante"] : "";
 		$descricao = isset($_POST["descricao"]) ? $_POST["descricao"] : "";
-		$ativo = isset($_POST["ativo"]) ? $_POST["ativo"] : "";
-
+		$ativo = isset($_POST["ativo"]) ? $_POST["ativo"] : true;
+		
 		if(isset($_FILES['foto'])){
 			$foto = $_FILES['foto'];
-
-
+			
 			if($foto['size'] > 2097152){
 				die("Arquivo muito grande! Max: 2MB");
 			}
@@ -56,13 +56,13 @@ if (f.tipo.value == "HARDWARE") {
 				die("Tipo de arquivo não aceito");
 			}
 			// img/produtos/sdfksajfksa.png
-			$caminho =  $pasta . $nomeDaFoto . "." .$extensao;
+			$caminho = $pasta . $nomeDaFoto . "." .$extensao;
 			$deu_certo = move_uploaded_file($foto["tmp_name"], $caminho);
-			
-	
+			//img/produtos/1654vbfdsvb6fds4.png
 			if($deu_certo){
-				$sql_code = "INSERT INTO produtos VALUES (NULL, '$nome', '$tipo', '$categoria', '$fabricante', '$descricao', '$camiho', true)";
-				$sql_query = $conexao->query($sql_code) or die("Falha na execução do código SQL: ". $conexao->error . "<br>" . var_dump($conexao->error));
+				$sql_code = "INSERT INTO produtos VALUES (NULL, '$nome', '$tipo', '$categoria', '$fabricante', '$descricao', '$caminho', true)";
+
+				$sql_query = $conexao->query($sql_code) or die("Falha na execução do código SQL: " . $conexao->error . "<br>" . var_dump($conexao->error));
 				if($sql_query){
 					echo "Gravou!";
 				} else {
@@ -78,9 +78,10 @@ if (f.tipo.value == "HARDWARE") {
 			}
 	
 		}
+		
+
 		?>
 		<main>
-		
 		<div class="container-fluid">
 			<h3>Cadastro de Produtos</h3>
 			<form enctype="multipart/form-data" class="row g-3 container-fluid" action="" name="f" method="post">

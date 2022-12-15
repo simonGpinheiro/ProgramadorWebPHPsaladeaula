@@ -1,9 +1,7 @@
 <?php 
-        include "../../../html/head.php";
-        //include "../../../html/header.php"; 
+        include "../../../html/header.php"; 
         require_once "../../conexao.php";
         require_once "../../protect.php";
-
         // require_once "../../src/model/Funcionario.php";
 
         
@@ -48,17 +46,15 @@
 				$id = $funcionario['idfuncionario'];
 				$nome = $funcionario['nome'];
 				
-                header("Location: /php/projeto/cadastroFuncionario.php?gravado=$id");
+                header("Location: ../../../cadastroFuncionario.php?gravado=$id");
                 die("Gravado!");
 
 			} else {
-                header("Location: /php/projeto/cadastroFuncionario.php?gravado=0");
+                header("Location: ../../../cadastroFuncionario.php?gravado=0");
             }
-            
-        }else {
-            header ("Location: /php/projeto/cadastroFuncionario.php");
+
         }
 
-        header("Location: /php/projeto/cadastroFuncionario.php");
+        header("Location: ../../../cadastroFuncionario.php");
 
         ?>

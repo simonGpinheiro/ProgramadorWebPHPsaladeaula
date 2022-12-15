@@ -45,31 +45,29 @@
         require_once "src/conexao.php";
         require_once "src/model/Cliente.php";
 
-        $id = isset($_GET["id"]) ? $_GET["id"] : 0;
-        if($id > 0){
-            $sql_code = "SELECT * FROM cliente WHERE idcliente = '$id'";
-            $sql_query = $conexao->query($sql_code);
+		$id = isset($_GET["id"]) ? $_GET["id"] : 0;
+		if( $id > 0){
+			$sql_code = "SELECT * FROM cliente WHERE idcliente = '$id'";
+			$sql_query = $conexao->query($sql_code);
 
-            if($sql_query->num_rows > 0){
-                $cliente = $sql_query->fetch_assoc();
+			if($sql_query->num_rows > 0){
+				$cliente = $sql_query->fetch_assoc();
+			} else {
+				header("Location: index.php");
+			}
 
-            } else{
-                header("Location: index.php");
- 
-            }
-
-        } else {
-            header("Location: index.php");
-        }
-
-
+		} else {
+			header("Location: index.php");
+		}
+      
         ?>
 
 		<main>
         <div class="container-fluid">
-			<h3>Edição do cliente</h3>
+			<h3>Edição do Cliente</h3>
 			<form class="row g-3 container-fluid" name="f" action="src/controler/cliente_bd/editarCliente.php" method="post">
-            <input type="text" class="form-control" id="id" name="idcliente" value="<?=$cliente['idcliente'];?>"hidden>
+				
+				<input type="text" class="form-control" id="id" name="idcliente" value="<?=$cliente['idcliente'];?>" hidden>
 
 				<div class="col-md-6 col-sm-12">
 					<label for="nome_id" class="form-label">Nome completo</label>
@@ -103,37 +101,36 @@
 					<select class="form-select" id="estadoc" name="estado_civil" required>
 						<option disabled value="">Selecione</option>
 						<option value="Solteiro"
-                        <?php if($cliente['estado_civil'] == "solteiro"){echo "selected";}?>>Solteiro(a)</option>
+						<?php if($cliente['estado_civil'] == "Solteiro"){echo "selected";}?>>Solterio(a)</option>
+						<option value="Casado"
+						<?php if($cliente['estado_civil'] == "Casado"){echo "selected";}?>>Casado(a)</option>
+						<option value="Divorciado"
+						<?php if($cliente['estado_civil'] == "Divorciado"){echo "selected";}?>>Divorciado(a)</option>
+						
+						<option value="Viuvo"
+						<?php if($cliente['estado_civil'] == "Viuvo"){echo "selected";}?>
+						>Viuvo(a)</option>
 
-						<option value="Casado" 
-                        <?php if($cliente['estado_civil'] == "casado"){echo "selected";}?>>Casado(a)</option>
-
-						<option value="Divorciado"<?php if($cliente['estado_civil'] == "Divorciado"){echo "selected";}?>
-                        >Divorciado(a)</option>
-
-						<option value="Viuvo"<?php if($cliente['estado_civil'] == "viuvo"){echo "selected";}?>
-                        >Viuvo(a)</option>
 					</select>
 				</div>
 				<div class="col-md-6 col-sm-12">
 					<label class="form-label">Sexo</label><br>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="sexo" id="sexo_id1" value="M"
-                        <?=($cliente['sexo'] == 'M') ? 'checked' : ''?>>
+						<input class="form-check-input" type="radio" name="sexo" id="sexo_id1" value="M" 
+						<?=($cliente['sexo'] == 'M') ? 'checked' : ''?>>
+
 						<label class="form-check-label" for="sexo_id1">
 							Masculino
 						</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="sexo" id="sexo_id2" value="F"
-                        <?=($cliente['sexo'] == 'F') ? 'checked' : ''?>>
+						<input class="form-check-input" type="radio" name="sexo" id="sexo_id2" value="F" <?=($cliente['sexo'] == 'F') ? 'checked' : ''?>>
 						<label class="form-check-label" for="sexo_id2">
 							Feminino
 						</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="radio" name="sexo" id="sexo_id3" value=""
-                        <?=($cliente['sexo'] == '0') ? 'checked' : ''?>>
+						<input class="form-check-input" type="radio" name="sexo" id="sexo_id3" value="O" <?=($cliente['sexo'] == 'O') ? 'checked' : ''?>>
 						<label class="form-check-label" for="sexo_id3">
 							Outros
 						</label>
@@ -151,8 +148,8 @@
 					</div>
 				</div>
 				<div class="col-12">
-					<button class="btn btn-primary" type="submit" id="btn-off" disabled style="display: none">Cadastrar</button>
-					<button class="btn btn-primary" type="submit" id="btn-on" >Cadastrar</button>
+					<button class="btn btn-primary" type="submit" id="btn-off" disabled style="display: none">Atualizar</button>
+					<button class="btn btn-primary" type="submit" id="btn-on" >Atualizar</button>
 				</div>
 			</form>
 		</div>

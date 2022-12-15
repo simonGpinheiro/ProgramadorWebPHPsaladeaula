@@ -1,10 +1,25 @@
+<?php
+$login = isset($_COOKIE['login']) ? $_COOKIE['login'] : '';
+?>
 <header>
 			<section>
 				<figure id="logo">
 					<img src="img/favicon.ico" alt="Logo">
 				</figure>
-				<input type="text" name="buscar" id="buscar" placeholder="Busque aqui" >
+
+				<!-- <input type="text" name="buscar" id="buscar" placeholder="Busque aqui"> -->
+
+			<form action="produtos.php" method="get">
+			<div id="buscar" class="input-group">
+				<input class="form-control" type="text" name="buscado" placeholder="Busque aqui" required>
+				<button class="btn btn-primary" id="btn-buscar">
+				<i class="bi bi-search"></i>	
+				</button>
+			</div>
+			</form>
+
 				<h1 id="textoEnviamos">Enviamos produtos para todo o território nacional.</h1>
+
 				<figure style="border: none">
 					<img id="carrinho" src="img/carrinhoCompra.png" alt="">
 					<?php
@@ -44,14 +59,20 @@
 							<br>
 
 							<label class="form-label">E-mail:</label><br>
-							<input type="text" name="email" class="form-control" placeholder="E-mail"><br>
+							<input type="text" name="email" class="form-control" placeholder="E-mail" value="<?= $login ?>"><br>
 
 							<label class="form-label">Senha:</label><br>
 							<input type="password" name="senha" class="form-control"><br>
 
 							<!-- <input type="submit" value="Entrar" class="btn btn-primary"> -->
 
+							<div class="form-group">
+								<input id="lembrar" name="lembrar" type="checkbox" 
+								<?= ($login != '')? 'checked': ''; ?> >
+								<label for="lembrar">Lembrar meu e-mail</label>
+							</div>
 
+							<br>
 							<a href="cadastroCliente.php">Crie o seu CADASTRO</a>
 						</div>
 						<div class="modal-footer">
@@ -109,10 +130,11 @@
 							<!-- <input type="submit" value="Entrar" class="btn btn-primary"> -->
 
 							<?php
-						if(isset($_SESSION['tipo']) && $_SESSION['tipo']=="Administrador"){
-							echo  "<a href='cadastroFuncionario.php'>Cadastro de Funcionário</a>";
+						if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
+							echo "<a href='cadastroFuncionario.php'>Cadastro de Funcionário</a>";
 						}?>
 
+							
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
