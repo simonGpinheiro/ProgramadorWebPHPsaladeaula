@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php 
 
-	//$teste = isset($_COOKIE['cliente']) ? $_COOKIE['cliente'] : '';
+	// $teste = isset($_COOKIE['cliente']) ? $_COOKIE['cliente'] : '';
 	$login = isset($_COOKIE['login']) ? $_COOKIE['login'] : '';
 
 ?>
@@ -50,19 +50,19 @@
 
 		?>
 
-		<?php
-			//echo "Cookie: " . $teste;
-			//echo "<br>";
-			//echo "Time(): " . time();
-			//echo "<br>";
-			//echo "Data e Hora: " . date("d/m/y H:i:s");
-			//echo "<br>";
-			//echo "Data e Hora: " . date("d/m/y H:i:s", time()+3600);
-			//echo "<br>";
-			//echo "Cookie 2: " . $login;
-			//echo "<br>";
+		<!-- <?php
+			echo "Cookie: " . $teste;
+			echo "<br>";
+			echo "Time(): " . time();
+			echo "<br>";
+			echo "Data e Hora: " . date("d/m/y H:i:s");
+			echo "<br>";
+			echo "Data e Hora: " . date("d/m/y H:i:s", time()+3600);
+			echo "<br>";
+			echo "Cookie 2: " . $login;
+			echo "<br>";
+			?> -->
 			
-		?> 
 		
 		<div id="banner">
 	 		<img src="img/banner/banner1.png" alt="banner do site">
